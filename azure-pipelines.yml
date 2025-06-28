@@ -11,6 +11,12 @@ pool:
   demands: 
    - JAVA_HOME_8
 steps:
+- script: |
+    export JAVA_HOME=$JAVA_HOME_8
+    export PATH=$JAVA_HOME/bin:$PATH
+    java -version
+
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
