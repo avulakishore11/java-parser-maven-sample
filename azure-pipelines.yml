@@ -8,13 +8,13 @@ trigger:
 
 pool:
   name: 'pool-1'
-  demands: 
-   - JAVA_HOME_8
 steps:
 - script: |
-    export JAVA_HOME=$JAVA_HOME_8
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
     export PATH=$JAVA_HOME/bin:$PATH
+    echo "JAVA_HOME=$JAVA_HOME"
     java -version
+  displayName: 'Force Java 1.8 on Linux Agent'
 
 
 - task: Maven@3
