@@ -11,6 +11,12 @@ pool:
   demands: 'maven'
 
 steps:
+- script: |
+    sudo apt update
+    sudo apt install -y openjdk-8-jdk
+    java -version
+  displayName: 'Install Java 1.8 on Ubuntu'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
