@@ -17,7 +17,8 @@ FROM eclipse-temurin:8-jre
 WORKDIR /app
 
 # Copy only the fat JAR from the build stage
-COPY --from=builder /app/target/javaparser-maven-sample-1.0-SNAPSHOT.jar app.jar
+# COPY --from=builder /app/target/javaparser-maven-sample-1.0-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/javaparser-maven-sample-1.0-SNAPSHOT-shade.jar app.jar
 
 # Define default runtime command
 CMD ["java", "-jar", "app.jar"]
